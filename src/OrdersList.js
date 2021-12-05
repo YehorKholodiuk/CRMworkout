@@ -1,70 +1,26 @@
 import React from "react";
 import {Table} from "reactstrap";
+import OrderItem from "./OrderItem";
 
 export default function OrdersList(props) {
 
     return (
 
-        <Table bordered>
+        <Table stripped>
             <thead>
             <tr>
-                <th>
-                    #
-                </th>
-                <th>
-                    First Name
-                </th>
-                <th>
-                    Last Name
-                </th>
-                <th>
-                    Username
-                </th>
+                <th>Name</th>
+                <th>Services</th>
+                <th>Price</th>
+                <th>Prepaid</th>
+                <th>Debt</th>
+                <th>Create at</th>
+                <th>Statuses</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <th scope="row">
-                    1
-                </th>
-                <td>
-                    Mark
-                </td>
-                <td>
-                    Otto
-                </td>
-                <td>
-                    @mdo
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">
-                    2
-                </th>
-                <td>
-                    Jacob
-                </td>
-                <td>
-                    Thornton
-                </td>
-                <td>
-                    @fat
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">
-                    3
-                </th>
-                <td>
-                    Larry
-                </td>
-                <td>
-                    the Bird
-                </td>
-                <td>
-                    @twitter
-                </td>
-            </tr>
+            {props.orders.map(el => <OrderItem order={el}/>)}
+
             </tbody>
         </Table>
 

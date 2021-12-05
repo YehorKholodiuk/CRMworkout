@@ -4,6 +4,7 @@ import {useState} from "react";
 import CreateNewClient from "./CreateNewClient";
 import 'bootstrap/dist/css/bootstrap.css';
 import { v4 as uuidv4 } from 'uuid';
+import OrdersList from "./OrdersList";
 
 function App() {
   const [clients,setClients] = useState([{
@@ -24,8 +25,9 @@ function App() {
         employee: 'Greg',
         price: '100',
         createAt: '15.01.2021',
-        prepaid: 50
+
       },
+
       sentToDo:{
         date:'',
         status:false},
@@ -39,8 +41,10 @@ function App() {
         date:'',
         status:false},
       paid:{
-        date:'',
-        status:false},
+        prepaid: 50,
+        debt: 50,
+        date: '',
+        status: false},
     }
   ])
   return (
@@ -48,6 +52,7 @@ function App() {
       <h1>Clients and Systems</h1>
     <CreateNewClient createNewClient={createNewClient}/>
       {clients.map( el => <li>{el.name}</li>)}
+      <OrdersList orders={orders}/>
     </div>
   );
 }
